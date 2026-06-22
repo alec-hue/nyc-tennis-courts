@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>NYC Tennis — live court availability</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#fff; --ink:#1a1a1a; --muted:#6b7280; --line:#e3e6ea;
+    --chip:#eef0f3; --chipOn:#1d9e75; --chipOnInk:#fff;
+    --open:#d8f3e0; --openInk:#0d6b2e; --openHi:#1d9e75; --closed:#fafbfc;
+    --accent:#0f6e56;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#16181d;--card:#1f232b;--ink:#e8e8ea;--muted:#9aa0aa;--line:#2c313b;
+      --chip:#2a2f38;--open:#173a27;--openInk:#7ee0a6;--closed:#23262d;--accent:#5dcaa5;}
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    -webkit-text-size-adjust:100%}
+  .wrap{max-width:1000px;margin:0 auto;padding:18px 16px 60px}
+  header h1{font-size:21px;margin:0 0 2px;display:flex;align-items:center;gap:8px}
+  .sub{color:var(--muted);font-size:13px;margin:0 0 14px}
+  .sub b{color:var(--accent);font-weight:600}
+  .controls{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:0 0 16px}
+  .group{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .group .lbl{font-size:12px;color:var(--muted);margin-right:2px}
+  .chip{border:1px solid var(--line);background:var(--chip);color:var(--ink);
+    border-radius:999px;padding:6px 12px;font-size:13px;cursor:pointer;user-select:none;
+    -webkit-tap-highlight-color:transparent}
+  .chip.on{background:var(--chipOn);color:var(--chipOnInk);border-color:transparent;font-weight:600}
+  .btn{border:1px solid var(--line);background:var(--card);color:var(--ink);
+    border-radius:10px;padding:8px 14px;font-size:14px;font-weight:600;cursor:pointer;
+    display:inline-flex;align-items:center;gap:7px}
+  .btn:active{transform:scale(.98)}
+  .btn.primary{background:var(--accent);color:#fff;border-color:transparent}
+  .bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 18px}
+  .loc{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:14px 16px;margin:0 0 14px}
+  .loc.dim{opacity:.55}
+  .loc h2{font-size:16px;margin:0 0 10px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .loc h2 a{color:inherit;text-decoration:none}
+  .loc h2 a:hover{text-decoration:underline}
+  .boro{font-weight:400;color:var(--muted);font-size:13px}
+  .badge{margin-left:auto;background:var(--open);color:var(--openInk);font-size:12px;
+    font-weight:600;padding:3px 10px;border-radius:999px}
+  .badge.none{background:var(--chip);color:var(--muted)}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{border-collapse:collapse;font-size:13px}
+  th,td{border:1px solid var(--line);text-align:center;padding:0}
+  thead th{padding:6px 7px;font-weight:600;color:var(--muted);white-space:nowrap}
+  th.t{padding:4px 9px;color:var(--muted);font-weight:500;text-align:right;white-space:nowrap}
+  td{width:42px;height:30px}
+  td.closed{background:var(--closed)}
+  td.open{background:var(--open)}
+  td.open a{display:block;width:100%;height:100%;line-height:30px;color:var(--openInk);
+    font-weight:700;text-decoration:none}
+  td.open.hi{background:var(--openHi)}
+  td.open.hi a{color:#fff}
+  .empty{color:var(--muted);font-size:14px;padding:8px 0}
+  footer{color:var(--muted);font-size:12px;margin-top:22px;line-height:1.6}
+  footer a{color:var(--accent)}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);
+    background:var(--accent);color:#fff;padding:10px 18px;border-radius:999px;
+    font-size:14px;font-weight:600;opacity:0;transition:opacity .2s;pointer-events:none}
+  .toast.show{opacity:1}
+  .spin{color:var(--muted);font-size:14px;padding:30px 0;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🎾 NYC tennis — live availability</h1>
+    <p class="sub" id="status">Loading…</p>
+  </header>
+
+  <div class="controls">
+    <div class="group"><span class="lbl">Days</span>
+      <span class="chip on" data-day="any">Any</span>
+      <span class="chip" data-day="weekend">Weekend</span>
+      <span class="chip" data-day="weekday">Weekdays</span>
+    </div>
+    <div class="group"><span class="lbl">Time</span>
+      <span class="chip on" data-time="any">Any</span>
+      <span class="chip" data-time="morning">Morning</span>
+      <span class="chip" data-time="afternoon">Afternoon</span>
+      <span class="chip" data-time="evening">Evening</span>
+    </div>
+  </div>
+
+  <div class="bar">
+    <button class="btn primary" id="copyBtn">📋 Copy shareable message</button>
+    <button class="btn" id="refreshBtn">↻ Refresh</button>
+  </div>
+
+  <div id="board"><div class="spin">Loading availability…</div></div>
+
+  <footer id="foot"></footer>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const BOOK_URL = "https://www.nycgovparks.org/tennisreservation/";
+const REFRESH_MS = 5 * 60 * 1000;   // re-fetch the feed every 5 min
+let DATA = null;
+const filt = { day: "any", time: "any" };
+
+const $ = (s, r=document) => r.querySelector(s);
+const el = (t, c, h) => { const e=document.createElement(t); if(c)e.className=c; if(h!=null)e.innerHTML=h; return e; };
+
+function timeToMin(s){
+  const m = String(s).trim().match(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/i);
+  if(!m) return 0;
+  let h=+m[1], mi=+(m[2]||0); const ap=m[3].toUpperCase();
+  if(ap==="PM"&&h!==12) h+=12; if(ap==="AM"&&h===12) h=0;
+  return h*60+mi;
+}
+function inTime(min){
+  if(filt.time==="morning")   return min < 720;
+  if(filt.time==="afternoon") return min >= 720 && min < 1020;
+  if(filt.time==="evening")   return min >= 1020;
+  return true;
+}
+function inDay(dow){
+  if(filt.day==="weekend")  return dow==="sat"||dow==="sun";
+  if(filt.day==="weekday")  return ["mon","tue","wed","thu","fri"].includes(dow);
+  return true;
+}
+function keep(slot){ return slot.courts_open>0 && inDay(slot.dow) && inTime(timeToMin(slot.time)); }
+
+function fmtAgo(iso){
+  const then=new Date(iso), now=new Date(), mins=Math.round((now-then)/60000);
+  if(isNaN(mins)) return "";
+  if(mins<1) return "just now";
+  if(mins<60) return mins+" min ago";
+  const h=Math.floor(mins/60); return h+(h===1?" hour ago":" hours ago");
+}
+function dLabel(iso){ // "2026-06-22" -> {dow:"Mon", md:"Jun 22"}
+  const d=new Date(iso+"T12:00:00");
+  return { dow:d.toLocaleDateString("en-US",{weekday:"short"}),
+           md:d.toLocaleDateString("en-US",{month:"short",day:"numeric"}) };
+}
+
+function render(){
+  const board=$("#board"); board.innerHTML="";
+  if(!DATA){ board.appendChild(el("div","spin","Loading…")); return; }
+
+  const locs=[...DATA.locations].map(L=>{
+    const slots=(L.slots||[]).filter(keep);
+    return {...L, _slots:slots, _open:slots.reduce((a,s)=>a+s.courts_open,0)};
+  }).sort((a,b)=>b._open-a._open);
+
+  let anyOpen=false;
+  for(const L of locs){
+    if(L.error){
+      const c=el("section","loc dim");
+      c.appendChild(el("h2",null,`${L.name} <span class="boro">${L.borough}</span>`+
+        `<span class="badge none">couldn't load</span>`));
+      board.appendChild(c); continue;
+    }
+    if(!L._slots.length){
+      const c=el("section","loc dim");
+      c.appendChild(el("h2",null,`${L.name} <span class="boro">${L.borough}</span>`+
+        `<span class="badge none">none for this filter</span>`));
+      board.appendChild(c); continue;
+    }
+    anyOpen=true;
+    const dates=[...new Set(L._slots.map(s=>s.date))].sort();
+    const times=[...new Set(L._slots.map(s=>s.time))].sort((a,b)=>timeToMin(a)-timeToMin(b));
+    const grid={}; L._slots.forEach(s=>grid[s.date+"|"+s.time]=s);
+
+    const c=el("section","loc");
+    c.appendChild(el("h2",null,
+      `<a href="${L.url}" target="_blank" rel="noopener">${L.name}</a>`+
+      `<span class="boro">${L.borough}</span>`+
+      `<span class="badge">${L._open} open</span>`));
+
+    let head="<tr><th class='t'></th>";
+    dates.forEach(d=>{const x=dLabel(d); head+=`<th>${x.dow}<br>${x.md}</th>`;});
+    head+="</tr>";
+    let body="";
+    times.forEach(t=>{
+      body+=`<tr><th class='t'>${t}</th>`;
+      dates.forEach(d=>{
+        const s=grid[d+"|"+t];
+        if(s&&s.courts_open){
+          const hi=s.courts_open>=Math.max(3,s.courts_total-1)?" hi":"";
+          const link=s.reserve_url||L.url;
+          body+=`<td class="open${hi}"><a href="${link}" target="_blank" rel="noopener" `+
+                `title="${s.courts_open} of ${s.courts_total} courts — book">${s.courts_open}</a></td>`;
+        } else body+=`<td class="closed"></td>`;
+      });
+      body+="</tr>";
+    });
+    const sc=el("div","scroll"); sc.appendChild(el("table",null,"<thead>"+head+"</thead><tbody>"+body+"</tbody>"));
+    c.appendChild(sc);
+    board.appendChild(c);
+  }
+  if(!anyOpen) board.appendChild(el("div","empty","No courts match this filter right now."));
+}
+
+function fmtHour(min){ let h=Math.floor(min/60); const ap=h<12?"am":"pm"; let h12=h%12; if(h12===0)h12=12; return h12+ap; }
+function compressTimes(times){ // ["6 AM","7 AM",...] -> "6–11am" / "8am, 2–4pm"
+  const mins=[...new Set(times.map(timeToMin))].sort((a,b)=>a-b);
+  if(!mins.length) return "";
+  const runs=[]; let s=mins[0], p=mins[0];
+  for(let i=1;i<mins.length;i++){ if(mins[i]-p===60){ p=mins[i]; } else { runs.push([s,p]); s=p=mins[i]; } }
+  runs.push([s,p]);
+  return runs.map(([a,b])=> a===b ? fmtHour(a) : fmtHour(a)+"–"+fmtHour(b)).join(", ");
+}
+function buildMessage(){
+  if(!DATA) return "";
+  const fday={any:"",weekend:" this weekend",weekday:" (weekdays)"}[filt.day];
+  const ftime={any:"",morning:", mornings",afternoon:", afternoons",evening:", evenings"}[filt.time];
+  const when=((fday+ftime).replace(/^,\s*/,"").trim()) || "next 2 weeks";
+  const now=new Date().toLocaleString("en-US",{weekday:"short",hour:"numeric",minute:"2-digit"});
+  const here=location.href.split("?")[0];
+  const lines=[`🎾 Open NYC tennis courts — ${when} (as of ${now}):`,""];
+
+  const locs=[...DATA.locations].map(L=>({...L,_slots:(L.slots||[]).filter(keep)}))
+    .filter(L=>L._slots.length).sort((a,b)=>b._slots.length-a._slots.length);
+
+  if(!locs.length) return `No open courts match "${when}" right now — check back soon.\n${here}`;
+
+  for(const L of locs){
+    const byDate={};
+    L._slots.forEach(s=>{(byDate[s.date]=byDate[s.date]||[]).push(s);});
+    const parts=Object.keys(byDate).sort().map(d=>{
+      const x=dLabel(d);
+      return `${x.dow} ${x.md}: ${compressTimes(byDate[d].map(s=>s.time))}`;
+    });
+    lines.push(`• ${L.name} (${L.borough}): ${parts.join("  ·  ")}`);
+  }
+  lines.push("", `Book → ${BOOK_URL}`, `Live → ${here}`);
+  return lines.join("\n");
+}
+
+function toast(msg){
+  const t=$("#toast"); t.textContent=msg; t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"),1600);
+}
+
+async function load(){
+  $("#status").textContent="Refreshing…";
+  try{
+    const r=await fetch("availability.json?t="+Date.now(),{cache:"no-store"});
+    DATA=await r.json();
+    const total=DATA.locations.reduce((a,L)=>a+(L.open_court_slots||0),0);
+    $("#status").innerHTML=`<b>${total}</b> open court-slots across ${DATA.locations.length} locations · `+
+      `data ${fmtAgo(DATA.generated)} · next 14 days`;
+    $("#foot").innerHTML=`Auto-updates from a job on the owner's Mac (~every 30 min); this page re-checks every 5 min. `+
+      `Viewing needs no login — booking does. Source: `+
+      `<a href="${BOOK_URL}" target="_blank" rel="noopener">nycgovparks.org</a>.`;
+    render();
+  }catch(e){
+    $("#status").textContent="Couldn't load the feed — retrying shortly.";
+  }
+}
+
+document.addEventListener("click",e=>{
+  const ch=e.target.closest(".chip"); if(!ch) return;
+  const grp=ch.dataset.day?"day":"time", key=ch.dataset.day?"day":"time";
+  document.querySelectorAll(`.chip[data-${key}]`).forEach(x=>x.classList.remove("on"));
+  ch.classList.add("on"); filt[key]=ch.dataset[key]; render();
+});
+$("#refreshBtn").addEventListener("click",load);
+$("#copyBtn").addEventListener("click",async()=>{
+  const msg=buildMessage();
+  try{ await navigator.clipboard.writeText(msg); toast("Message copied!"); }
+  catch{ prompt("Copy this message:",msg); }
+});
+document.addEventListener("visibilitychange",()=>{ if(!document.hidden) load(); });
+load();
+setInterval(load, REFRESH_MS);
+</script>
+</body>
+</html>
