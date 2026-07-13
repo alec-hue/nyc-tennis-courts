@@ -155,6 +155,11 @@ function dLabel(iso){ // "2026-06-22" -> {dow:"Mon", md:"Jun 22"}
            md:d.toLocaleDateString("en-US",{month:"short",day:"numeric"}) };
 }
 function isWeekend(iso){ const g=new Date(iso+"T12:00:00").getDay(); return g===0||g===6; }
+function filterGap(){ // short phrase describing what the active filter excludes
+  const day={weekend:"this weekend",weekday:"on weekdays"}[filt.day];
+  const time={morning:"in mornings",afternoon:"in afternoons",evening:"in evenings"}[filt.time];
+  return [day,time].filter(Boolean).join(" ") || "for this filter";
+}
 
 function render(){
   const board=$("#board"); board.innerHTML="";
@@ -175,8 +180,10 @@ function render(){
     }
     if(!L._slots.length){
       const c=el("section","loc dim");
+      const total=L.open_court_slots||0;
+      const msg = total>0 ? `none ${filterGap()} · ${total} open otherwise` : "fully booked";
       c.appendChild(el("h2",null,`${L.name} <span class="boro">${L.borough}</span>`+
-        `<span class="meta"><span class="badge none">none for this filter</span>${bookLink(L.url)}</span>`));
+        `<span class="meta"><span class="badge none">${msg}</span>${bookLink(L.url)}</span>`));
       board.appendChild(c); continue;
     }
     anyOpen=true;
