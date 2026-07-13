@@ -44,9 +44,13 @@
   .loc h2 a{color:inherit;text-decoration:none}
   .loc h2 a:hover{text-decoration:underline}
   .boro{font-weight:400;color:var(--muted);font-size:13px}
-  .badge{margin-left:auto;background:var(--open);color:var(--openInk);font-size:12px;
+  .badge{background:var(--open);color:var(--openInk);font-size:12px;
     font-weight:600;padding:3px 10px;border-radius:999px}
   .badge.none{background:var(--chip);color:var(--muted)}
+  .meta{margin-left:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .book{display:inline-flex;align-items:center;gap:4px;background:#0f6e56;color:#fff;
+    text-decoration:none;font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:999px;white-space:nowrap}
+  .book:hover{background:#0c5b47} .book:active{transform:scale(.97)}
   .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
   table{border-collapse:collapse;font-size:13px}
   th,td{border:1px solid var(--line);text-align:center;padding:0}
@@ -109,6 +113,7 @@ const filt = { day: "any", time: "any" };
 
 const $ = (s, r=document) => r.querySelector(s);
 const el = (t, c, h) => { const e=document.createElement(t); if(c)e.className=c; if(h!=null)e.innerHTML=h; return e; };
+const bookLink = u => `<a class="book" href="${u}" target="_blank" rel="noopener">Book online ↗</a>`;
 
 function timeToMin(s){
   const m = String(s).trim().match(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/i);
@@ -157,13 +162,13 @@ function render(){
     if(L.error){
       const c=el("section","loc dim");
       c.appendChild(el("h2",null,`${L.name} <span class="boro">${L.borough}</span>`+
-        `<span class="badge none">couldn't load</span>`));
+        `<span class="meta"><span class="badge none">couldn't load</span>${bookLink(L.url)}</span>`));
       board.appendChild(c); continue;
     }
     if(!L._slots.length){
       const c=el("section","loc dim");
       c.appendChild(el("h2",null,`${L.name} <span class="boro">${L.borough}</span>`+
-        `<span class="badge none">none for this filter</span>`));
+        `<span class="meta"><span class="badge none">none for this filter</span>${bookLink(L.url)}</span>`));
       board.appendChild(c); continue;
     }
     anyOpen=true;
@@ -173,9 +178,9 @@ function render(){
 
     const c=el("section","loc");
     c.appendChild(el("h2",null,
-      `<a href="${L.url}" target="_blank" rel="noopener">${L.name}</a>`+
+      `${L.name}`+
       `<span class="boro">${L.borough}</span>`+
-      `<span class="badge">${L._open} open</span>`));
+      `<span class="meta"><span class="badge">${L._open} open</span>${bookLink(L.url)}</span>`));
 
     let head="<tr><th class='t'></th>";
     dates.forEach(d=>{const x=dLabel(d); head+=`<th>${x.dow}<br>${x.md}</th>`;});
