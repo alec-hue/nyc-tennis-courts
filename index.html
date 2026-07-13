@@ -54,6 +54,10 @@
   .book{display:inline-flex;align-items:center;gap:4px;background:#0f6e56;color:#fff;
     text-decoration:none;font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:999px;white-space:nowrap}
   .book:hover{background:#0c5b47} .book:active{transform:scale(.97)}
+  .addr{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;color:var(--muted);
+    text-decoration:none;margin:0 0 12px}
+  .addr:hover{color:var(--accent);text-decoration:underline}
+  .addr .pin{font-size:12px}
   .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
   table{border-collapse:collapse;font-size:13px}
   th,td{border:1px solid var(--line);text-align:center;padding:0}
@@ -121,6 +125,19 @@ const filt = { day: "any", time: "any" };
 const $ = (s, r=document) => r.querySelector(s);
 const el = (t, c, h) => { const e=document.createElement(t); if(c)e.className=c; if(h!=null)e.innerHTML=h; return e; };
 const bookLink = u => `<a class="book" href="${u}" target="_blank" rel="noopener">Book online ↗</a>`;
+// Addresses verified; coordinates are each venue's court centroid from the NYC Parks map.
+const PLACES = {
+  2:  {addr:"Riverside Park at W 119th St, NY 10027",          lat:40.81185, lng:-73.96541, q:"Riverside Park Tennis Courts (119th St)"},
+  3:  {addr:"Riverside Park at W 96th St, NY 10025",           lat:40.79642, lng:-73.97737, q:"Riverside Clay Tennis Courts (96th St)"},
+  4:  {addr:"E 150th St & Exterior St, Bronx, NY 10451",       lat:40.82325, lng:-73.93155, q:"Mill Pond Park Tennis Courts"},
+  7:  {addr:"79-20 Winchester Blvd, Queens Village, NY 11427", lat:40.73902, lng:-73.73724, q:"Commonpoint Tennis at Alley Pond Park"},
+  9:  {addr:"1 Randalls Island, NY 10035",                     lat:40.79301, lng:-73.91852, q:"Sportime Randalls Island Tennis"},
+  11: {addr:"Bedford Ave & N 12th St, Brooklyn, NY 11211",     lat:40.72187, lng:-73.95477, q:"McCarren Park Tennis Courts"},
+  12: {addr:"Central Park, W 96th St, NY 10025",               lat:40.79007, lng:-73.96185, q:"Central Park Tennis Center"},
+  13: {addr:"488 E 60th St, NY 10022",                         lat:40.75910, lng:-73.96025, q:"Sutton East Tennis (Queensboro Oval)"},
+};
+const mapsLink = p => `https://maps.apple.com/?ll=${p.lat},${p.lng}&q=${encodeURIComponent(p.q)}`;
+const addrHtml = cid => { const p=PLACES[cid]; return p ? `<a class="addr" href="${mapsLink(p)}" target="_blank" rel="noopener"><span class="pin" aria-hidden="true">📍</span><span>${p.addr}</span></a>` : ""; };
 
 function timeToMin(s){
   const m = String(s).trim().match(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/i);
@@ -176,6 +193,7 @@ function render(){
       const c=el("section","loc dim");
       c.appendChild(el("h2",null,`${L.name} <span class="boro">${L.borough}</span>`+
         `<span class="meta"><span class="badge none">couldn't load</span>${bookLink(L.url)}</span>`));
+      c.insertAdjacentHTML("beforeend", addrHtml(L.location_id));
       board.appendChild(c); continue;
     }
     if(!L._slots.length){
@@ -184,6 +202,7 @@ function render(){
       const msg = total>0 ? `none ${filterGap()} · ${total} open otherwise` : "fully booked";
       c.appendChild(el("h2",null,`${L.name} <span class="boro">${L.borough}</span>`+
         `<span class="meta"><span class="badge none">${msg}</span>${bookLink(L.url)}</span>`));
+      c.insertAdjacentHTML("beforeend", addrHtml(L.location_id));
       board.appendChild(c); continue;
     }
     anyOpen=true;
@@ -196,6 +215,7 @@ function render(){
       `${L.name}`+
       `<span class="boro">${L.borough}</span>`+
       `<span class="meta"><span class="badge">${L._open} open</span>${bookLink(L.url)}</span>`));
+    c.insertAdjacentHTML("beforeend", addrHtml(L.location_id));
 
     let head="<tr><th class='t'></th>";
     dates.forEach(d=>{const x=dLabel(d); const w=isWeekend(d)?' class="wknd"':''; head+=`<th${w}>${x.dow}<br>${x.md}</th>`;});
