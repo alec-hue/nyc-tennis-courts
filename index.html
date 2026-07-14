@@ -228,9 +228,10 @@ function render(){
         const s=grid[d+"|"+t];
         if(s&&s.courts_open){
           const hi=s.courts_open>=Math.max(3,s.courts_total-1)?" hi":"";
-          const link=s.reserve_url||L.url;
-          body+=`<td class="open${hi}${wk}"><a href="${link}" target="_blank" rel="noopener" `+
-                `title="${s.courts_open} of ${s.courts_total} courts — book">${s.courts_open}</a></td>`;
+          // Link to the location's live grid (not a specific slot id): individual
+          // slots can be taken between refreshes, and a stale slot link errors out.
+          body+=`<td class="open${hi}${wk}"><a href="${L.url}" target="_blank" rel="noopener" `+
+                `title="${s.courts_open} of ${s.courts_total} courts open ${dLabel(d).dow} ${t} — tap to book on the live page">${s.courts_open}</a></td>`;
         } else body+=`<td class="closed${wk}"></td>`;
       });
       body+="</tr>";
