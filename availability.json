@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-14T22:29:48.152129",
+  "generated": "2026-07-14T23:25:32.930898",
   "locations": [
     {
       "location_id": 9,
@@ -7,7 +7,7 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/9",
       "error": null,
-      "open_court_slots": 393,
+      "open_court_slots": 392,
       "slots": [
         {
           "date": "2026-07-15",
@@ -461,9 +461,9 @@
           "date": "2026-07-18",
           "dow": "sat",
           "time": "7 PM",
-          "courts_open": 4,
+          "courts_open": 3,
           "courts_total": 4,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/704987"
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/704988"
         },
         {
           "date": "2026-07-18",
@@ -516,14 +516,6 @@
         {
           "date": "2026-07-19",
           "dow": "sun",
-          "time": "10 AM",
-          "courts_open": 1,
-          "courts_total": 4,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/705021"
-        },
-        {
-          "date": "2026-07-19",
-          "dow": "sun",
           "time": "11 AM",
           "courts_open": 2,
           "courts_total": 4,
@@ -565,7 +557,7 @@
           "date": "2026-07-19",
           "dow": "sun",
           "time": "4 PM",
-          "courts_open": 3,
+          "courts_open": 4,
           "courts_total": 4,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/705043"
         },
@@ -2245,15 +2237,15 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/12",
       "error": null,
-      "open_court_slots": 169,
+      "open_court_slots": 170,
       "slots": [
         {
           "date": "2026-07-15",
           "dow": "wed",
           "time": "2 PM",
-          "courts_open": 1,
+          "courts_open": 2,
           "courts_total": 6,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/960654"
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/958036"
         },
         {
           "date": "2026-07-15",
@@ -2583,7 +2575,7 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/2",
       "error": null,
-      "open_court_slots": 56,
+      "open_court_slots": 55,
       "slots": [
         {
           "date": "2026-07-15",
@@ -2722,14 +2714,6 @@
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/684974"
         },
         {
-          "date": "2026-07-17",
-          "dow": "fri",
-          "time": "3 PM",
-          "courts_open": 1,
-          "courts_total": 2,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/684976"
-        },
-        {
           "date": "2026-07-20",
           "dow": "mon",
           "time": "9 AM",
@@ -2865,15 +2849,15 @@
       "borough": "Brooklyn",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/11",
       "error": null,
-      "open_court_slots": 19,
+      "open_court_slots": 17,
       "slots": [
         {
           "date": "2026-07-15",
           "dow": "wed",
           "time": "12 PM",
-          "courts_open": 2,
+          "courts_open": 1,
           "courts_total": 2,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/699963"
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/699964"
         },
         {
           "date": "2026-07-15",
@@ -2914,14 +2898,6 @@
           "courts_open": 1,
           "courts_total": 2,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/700068"
-        },
-        {
-          "date": "2026-07-21",
-          "dow": "tue",
-          "time": "11 AM",
-          "courts_open": 1,
-          "courts_total": 2,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/700082"
         },
         {
           "date": "2026-07-21",
