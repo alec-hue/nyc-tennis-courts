@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-16T12:30:31.162243",
+  "generated": "2026-07-16T13:00:33.701058",
   "locations": [
     {
       "location_id": 9,
@@ -2213,7 +2213,7 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/12",
       "error": null,
-      "open_court_slots": 172,
+      "open_court_slots": 171,
       "slots": [
         {
           "date": "2026-07-17",
@@ -2222,6 +2222,14 @@
           "courts_open": 1,
           "courts_total": 6,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/955437"
+        },
+        {
+          "date": "2026-07-17",
+          "dow": "fri",
+          "time": "7 PM",
+          "courts_open": 1,
+          "courts_total": 6,
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/1005023"
         },
         {
           "date": "2026-07-20",
@@ -2355,15 +2363,15 @@
           "date": "2026-07-24",
           "dow": "fri",
           "time": "2 PM",
-          "courts_open": 2,
+          "courts_open": 1,
           "courts_total": 6,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/956826"
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/958135"
         },
         {
           "date": "2026-07-27",
           "dow": "mon",
           "time": "10 AM",
-          "courts_open": 6,
+          "courts_open": 5,
           "courts_total": 6,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/954238"
         },
@@ -3069,16 +3077,8 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/13",
       "error": null,
-      "open_court_slots": 12,
+      "open_court_slots": 11,
       "slots": [
-        {
-          "date": "2026-07-21",
-          "dow": "tue",
-          "time": "10 AM",
-          "courts_open": 1,
-          "courts_total": 2,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/681699"
-        },
         {
           "date": "2026-07-21",
           "dow": "tue",
