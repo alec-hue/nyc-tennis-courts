@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-24T21:18:48.964106",
+  "generated": "2026-07-24T22:46:09.273797",
   "locations": [
     {
       "location_id": 9,
@@ -16,14 +16,6 @@
           "courts_open": 4,
           "courts_total": 4,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/705411"
-        },
-        {
-          "date": "2026-07-25",
-          "dow": "sat",
-          "time": "7 AM",
-          "courts_open": 1,
-          "courts_total": 4,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/705418"
         },
         {
           "date": "2026-07-25",
@@ -157,7 +149,7 @@
           "date": "2026-07-27",
           "dow": "mon",
           "time": "2 PM",
-          "courts_open": 3,
+          "courts_open": 4,
           "courts_total": 4,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/705579"
         },
@@ -1459,7 +1451,7 @@
       "borough": "Bronx",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/4",
       "error": null,
-      "open_court_slots": 204,
+      "open_court_slots": 203,
       "slots": [
         {
           "date": "2026-07-25",
@@ -1508,14 +1500,6 @@
           "courts_open": 2,
           "courts_total": 3,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/711063"
-        },
-        {
-          "date": "2026-07-26",
-          "dow": "sun",
-          "time": "1 PM",
-          "courts_open": 1,
-          "courts_total": 3,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/711080"
         },
         {
           "date": "2026-07-26",
@@ -2053,15 +2037,15 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/12",
       "error": null,
-      "open_court_slots": 136,
+      "open_court_slots": 134,
       "slots": [
         {
-          "date": "2026-07-27",
-          "dow": "mon",
-          "time": "10 AM",
+          "date": "2026-07-26",
+          "dow": "sun",
+          "time": "8 AM",
           "courts_open": 1,
           "courts_total": 6,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/956856"
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/954225"
         },
         {
           "date": "2026-07-27",
@@ -2219,7 +2203,7 @@
           "date": "2026-08-04",
           "dow": "tue",
           "time": "11 AM",
-          "courts_open": 5,
+          "courts_open": 4,
           "courts_total": 6,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/954327"
         },
@@ -2342,14 +2326,6 @@
           "courts_open": 1,
           "courts_total": 6,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/954353"
-        },
-        {
-          "date": "2026-08-06",
-          "dow": "thu",
-          "time": "6 PM",
-          "courts_open": 1,
-          "courts_total": 6,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/956973"
         },
         {
           "date": "2026-08-07",
@@ -2798,28 +2774,19 @@
       ]
     },
     {
-      "location_id": 13,
-      "name": "Sutton East at Queensborough Oval",
-      "borough": "Manhattan",
-      "url": "https://www.nycgovparks.org/tennisreservation/availability/13",
-      "error": null,
-      "open_court_slots": 1,
-      "slots": [
-        {
-          "date": "2026-07-27",
-          "dow": "mon",
-          "time": "2 PM",
-          "courts_open": 1,
-          "courts_total": 2,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/681863"
-        }
-      ]
-    },
-    {
       "location_id": 3,
       "name": "Riverside Clay Tennis Association at Riverside Park (96 Street)",
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/3",
+      "error": null,
+      "open_court_slots": 0,
+      "slots": []
+    },
+    {
+      "location_id": 13,
+      "name": "Sutton East at Queensborough Oval",
+      "borough": "Manhattan",
+      "url": "https://www.nycgovparks.org/tennisreservation/availability/13",
       "error": null,
       "open_court_slots": 0,
       "slots": []
