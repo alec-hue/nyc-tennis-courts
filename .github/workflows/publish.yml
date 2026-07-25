@@ -1,0 +1,51 @@
+name: publish-availability
+
+on:
+  workflow_dispatch:        # manual trigger (for testing)
+  schedule:
+    - cron: "5,35 * * * *"   # every 30 min (offset from the hour to dodge congestion)
+
+permissions:
+  contents: write           # allow the job to push availability.json back
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch availability from NYC Parks (the WAF test)
+        run: |
+          python3 tennis.py --days 16 --json > availability.new.json
+          python3 - <<'PY'
+          import json, sys
+          d = json.load(open("availability.new.json"))
+          tot = sum(L["open_court_slots"] for L in d["locations"])
+          errs = [L["name"] for L in d["locations"] if L.get("error")]
+          print(f"::notice::open court-slots={tot}  errored_locations={errs}")
+          if tot == 0:
+              print("::error::0 open slots — datacenter IP likely blocked by the WAF")
+              sys.exit(1)
+          PY
+
+      - name: Publish if changed
+        run: |
+          mv -f availability.new.json availability.json
+          git config user.name "tennis-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add availability.json
+          if git diff --cached --quiet; then
+            echo "no change to publish"
+          else
+            git commit -m "update availability (cloud) $(date -u +%FT%TZ)"
+            git pull --rebase --autostash origin main || true
+            git push
+          fi
