@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-24T19:58:46.161423",
+  "generated": "2026-07-24T21:18:48.964106",
   "locations": [
     {
       "location_id": 9,
@@ -7,7 +7,7 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/9",
       "error": null,
-      "open_court_slots": 360,
+      "open_court_slots": 358,
       "slots": [
         {
           "date": "2026-07-25",
@@ -157,7 +157,7 @@
           "date": "2026-07-27",
           "dow": "mon",
           "time": "2 PM",
-          "courts_open": 4,
+          "courts_open": 3,
           "courts_total": 4,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/705579"
         },
@@ -733,9 +733,9 @@
           "date": "2026-07-31",
           "dow": "fri",
           "time": "6 PM",
-          "courts_open": 4,
+          "courts_open": 3,
           "courts_total": 4,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/705867"
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/705868"
         },
         {
           "date": "2026-07-31",
@@ -777,7 +777,7 @@
       "borough": "Queens",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/7",
       "error": null,
-      "open_court_slots": 336,
+      "open_court_slots": 335,
       "slots": [
         {
           "date": "2026-07-25",
@@ -887,7 +887,7 @@
           "date": "2026-07-26",
           "dow": "sun",
           "time": "9 AM",
-          "courts_open": 4,
+          "courts_open": 3,
           "courts_total": 4,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/690685"
         },
@@ -1459,7 +1459,7 @@
       "borough": "Bronx",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/4",
       "error": null,
-      "open_court_slots": 205,
+      "open_court_slots": 204,
       "slots": [
         {
           "date": "2026-07-25",
@@ -1529,7 +1529,7 @@
           "date": "2026-07-26",
           "dow": "sun",
           "time": "3 PM",
-          "courts_open": 3,
+          "courts_open": 2,
           "courts_total": 3,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/711084"
         },
@@ -2053,7 +2053,7 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/12",
       "error": null,
-      "open_court_slots": 135,
+      "open_court_slots": 136,
       "slots": [
         {
           "date": "2026-07-27",
@@ -2342,6 +2342,14 @@
           "courts_open": 1,
           "courts_total": 6,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/954353"
+        },
+        {
+          "date": "2026-08-06",
+          "dow": "thu",
+          "time": "6 PM",
+          "courts_open": 1,
+          "courts_total": 6,
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/956973"
         },
         {
           "date": "2026-08-07",
@@ -2790,24 +2798,6 @@
       ]
     },
     {
-      "location_id": 3,
-      "name": "Riverside Clay Tennis Association at Riverside Park (96 Street)",
-      "borough": "Manhattan",
-      "url": "https://www.nycgovparks.org/tennisreservation/availability/3",
-      "error": null,
-      "open_court_slots": 1,
-      "slots": [
-        {
-          "date": "2026-07-31",
-          "dow": "fri",
-          "time": "6 PM",
-          "courts_open": 1,
-          "courts_total": 2,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/697289"
-        }
-      ]
-    },
-    {
       "location_id": 13,
       "name": "Sutton East at Queensborough Oval",
       "borough": "Manhattan",
@@ -2824,6 +2814,15 @@
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/681863"
         }
       ]
+    },
+    {
+      "location_id": 3,
+      "name": "Riverside Clay Tennis Association at Riverside Park (96 Street)",
+      "borough": "Manhattan",
+      "url": "https://www.nycgovparks.org/tennisreservation/availability/3",
+      "error": null,
+      "open_court_slots": 0,
+      "slots": []
     }
   ]
 }
