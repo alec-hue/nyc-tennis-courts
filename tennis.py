@@ -419,7 +419,7 @@ def to_json(data, locations, keep, errors=None):
             } for s in sorted(kept, key=lambda x: (x["date"], x["minutes"]))],
         })
     out.sort(key=lambda x: -x["open_court_slots"])
-    return json.dumps({"generated": dt.datetime.now().isoformat(),
+    return json.dumps({"generated": dt.datetime.now(dt.timezone.utc).isoformat(),
                        "locations": out}, indent=2)
 
 

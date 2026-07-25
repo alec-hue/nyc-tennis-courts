@@ -15,6 +15,7 @@
   @media (prefers-color-scheme:dark){
     :root{--bg:#16181d;--card:#1f232b;--ink:#e8e8ea;--muted:#9aa0aa;--line:#2c313b;
       --chip:#2a2f38;--open:#173a27;--openInk:#7ee0a6;--closed:#23262d;--accent:#5dcaa5;}
+    .stale{background:#3a2f14;color:#f0c96b;border-color:#5c4a1f}
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);
@@ -40,6 +41,9 @@
   .note{font-size:12.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);
     border-radius:10px;padding:9px 12px;margin:0 0 16px;line-height:1.5}
   .note b{color:var(--ink);font-weight:600}
+  .stale{background:#fdecc8;color:#7a5b00;border:1px solid #f0c14b;border-radius:10px;
+    padding:10px 14px;margin:0 0 14px;font-size:13.5px;line-height:1.5}
+  .stale b{font-weight:600}
   .loc{background:var(--card);border:1px solid var(--line);border-radius:14px;
     padding:14px 16px;margin:0 0 14px}
   .loc.dim{opacity:.55}
@@ -88,6 +92,8 @@
     <h1>🎾 NYC tennis — live availability</h1>
     <p class="sub" id="status">Loading…</p>
   </header>
+
+  <div class="stale" id="staleBanner" hidden></div>
 
   <div class="controls">
     <div class="group"><span class="lbl">Days</span>
@@ -292,9 +298,15 @@ async function load(){
     const total=DATA.locations.reduce((a,L)=>a+(L.open_court_slots||0),0);
     $("#status").innerHTML=`<b>${total}</b> open court-slots across ${DATA.locations.length} locations · `+
       `data ${fmtAgo(DATA.generated)} · next 2 weeks`;
-    $("#foot").innerHTML=`Auto-updates from a job on the owner's Mac (~every 30 min); this page re-checks every 5 min. `+
+    $("#foot").innerHTML=`Auto-updates in the cloud (~every 30 min); this page re-checks every 5 min. `+
       `Viewing needs no login — booking does. Source: `+
       `<a href="${BOOK_URL}" target="_blank" rel="noopener">nycgovparks.org</a>.`;
+    const ageMin=Math.round((Date.now()-new Date(DATA.generated))/60000);
+    const sb=$("#staleBanner");
+    if(ageMin>120){
+      sb.innerHTML=`⚠️ Heads up: this data was last updated <b>${fmtAgo(DATA.generated)}</b> and may be out of date. It refreshes automatically — try reloading in a bit.`;
+      sb.hidden=false;
+    } else sb.hidden=true;
     render();
   }catch(e){
     $("#status").textContent="Couldn't load the feed — retrying shortly.";
