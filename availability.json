@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-01T20:58:31.820806+00:00",
+  "generated": "2026-08-01T21:59:55.624430+00:00",
   "locations": [
     {
       "location_id": 9,
@@ -7,7 +7,7 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/9",
       "error": null,
-      "open_court_slots": 363,
+      "open_court_slots": 362,
       "slots": [
         {
           "date": "2026-08-02",
@@ -264,14 +264,6 @@
           "courts_open": 1,
           "courts_total": 4,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/706142"
-        },
-        {
-          "date": "2026-08-04",
-          "dow": "tue",
-          "time": "9 PM",
-          "courts_open": 1,
-          "courts_total": 4,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/706152"
         },
         {
           "date": "2026-08-04",
@@ -2165,16 +2157,8 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/12",
       "error": null,
-      "open_court_slots": 136,
+      "open_court_slots": 135,
       "slots": [
-        {
-          "date": "2026-08-02",
-          "dow": "sun",
-          "time": "6 PM",
-          "courts_open": 1,
-          "courts_total": 6,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/958238"
-        },
         {
           "date": "2026-08-03",
           "dow": "mon",
@@ -2737,17 +2721,9 @@
           "date": "2026-08-05",
           "dow": "wed",
           "time": "12 PM",
-          "courts_open": 1,
+          "courts_open": 2,
           "courts_total": 2,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/682092"
-        },
-        {
-          "date": "2026-08-05",
-          "dow": "wed",
-          "time": "3 PM",
-          "courts_open": 1,
-          "courts_total": 2,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/682099"
         }
       ]
     },
