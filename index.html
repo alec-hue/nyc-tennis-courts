@@ -36,6 +36,8 @@
     border-radius:10px;padding:8px 14px;font-size:14px;font-weight:600;cursor:pointer;
     display:inline-flex;align-items:center;gap:7px}
   .btn:active{transform:scale(.98)}
+  .btn.disabled{opacity:.45;cursor:not-allowed}
+  .btn.disabled:active{transform:none}
   .btn.primary{background:var(--accent);color:#fff;border-color:transparent}
   .bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 14px}
   .note{font-size:12.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);
@@ -290,6 +292,18 @@ function toast(msg){
   setTimeout(()=>t.classList.remove("show"),1600);
 }
 
+function updateRefreshState(){
+  const btn=$("#refreshBtn"); if(!DATA) return;
+  const ageMin=(Date.now()-new Date(DATA.generated))/60000;
+  if(ageMin<30){
+    btn.classList.add("disabled");
+    btn.title=`Updates every 30 min — data is current (${Math.round(ageMin)} min old). You can refresh again in ~${Math.max(1,Math.ceil(30-ageMin))} min.`;
+  } else {
+    btn.classList.remove("disabled");
+    btn.title="Check for the latest data";
+  }
+}
+
 async function load(){
   $("#status").textContent="Refreshing…";
   try{
@@ -307,6 +321,7 @@ async function load(){
       sb.innerHTML=`⚠️ Heads up: this data was last updated <b>${fmtAgo(DATA.generated)}</b> and may be out of date. It refreshes automatically — try reloading in a bit.`;
       sb.hidden=false;
     } else sb.hidden=true;
+    updateRefreshState();
     render();
   }catch(e){
     $("#status").textContent="Couldn't load the feed — retrying shortly.";
@@ -320,6 +335,10 @@ document.addEventListener("click",e=>{
   ch.classList.add("on"); filt[key]=ch.dataset[key]; render();
 });
 $("#refreshBtn").addEventListener("click",async()=>{
+  if($("#refreshBtn").classList.contains("disabled")){
+    toast("Already current — updates every 30 min");
+    return;
+  }
   await load();
   toast(DATA ? `Checked — data ${fmtAgo(DATA.generated)}` : "Couldn't reach the feed");
 });
@@ -331,6 +350,7 @@ $("#copyBtn").addEventListener("click",async()=>{
 document.addEventListener("visibilitychange",()=>{ if(!document.hidden) load(); });
 load();
 setInterval(load, REFRESH_MS);
+setInterval(updateRefreshState, 30000);
 </script>
 </body>
 </html>
