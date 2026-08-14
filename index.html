@@ -319,7 +319,10 @@ document.addEventListener("click",e=>{
   document.querySelectorAll(`.chip[data-${key}]`).forEach(x=>x.classList.remove("on"));
   ch.classList.add("on"); filt[key]=ch.dataset[key]; render();
 });
-$("#refreshBtn").addEventListener("click",load);
+$("#refreshBtn").addEventListener("click",async()=>{
+  await load();
+  toast(DATA ? `Checked — data ${fmtAgo(DATA.generated)}` : "Couldn't reach the feed");
+});
 $("#copyBtn").addEventListener("click",async()=>{
   const msg=buildMessage();
   try{ await navigator.clipboard.writeText(msg); toast("Message copied!"); }
