@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-19T15:10:10.794348+00:00",
+  "generated": "2026-08-19T16:36:18.909103+00:00",
   "locations": [
     {
       "location_id": 9,
@@ -7,7 +7,7 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/9",
       "error": null,
-      "open_court_slots": 353,
+      "open_court_slots": 352,
       "slots": [
         {
           "date": "2026-08-20",
@@ -229,7 +229,7 @@
           "date": "2026-08-21",
           "dow": "fri",
           "time": "9 PM",
-          "courts_open": 3,
+          "courts_open": 2,
           "courts_total": 4,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/707307"
         },
@@ -2181,7 +2181,7 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/12",
       "error": null,
-      "open_court_slots": 120,
+      "open_court_slots": 117,
       "slots": [
         {
           "date": "2026-08-23",
@@ -2227,7 +2227,7 @@
           "date": "2026-08-27",
           "dow": "thu",
           "time": "10 AM",
-          "courts_open": 3,
+          "courts_open": 2,
           "courts_total": 6,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/954579"
         },
@@ -2302,14 +2302,6 @@
           "courts_open": 5,
           "courts_total": 6,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/961557"
-        },
-        {
-          "date": "2026-09-01",
-          "dow": "tue",
-          "time": "10 AM",
-          "courts_open": 1,
-          "courts_total": 6,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/962719"
         },
         {
           "date": "2026-09-01",
@@ -2403,7 +2395,7 @@
           "date": "2026-09-03",
           "dow": "thu",
           "time": "10 AM",
-          "courts_open": 3,
+          "courts_open": 2,
           "courts_total": 6,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/961971"
         },
@@ -2665,7 +2657,7 @@
       "borough": "Brooklyn",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/11",
       "error": null,
-      "open_court_slots": 15,
+      "open_court_slots": 14,
       "slots": [
         {
           "date": "2026-08-24",
@@ -2687,9 +2679,9 @@
           "date": "2026-08-25",
           "dow": "tue",
           "time": "12 PM",
-          "courts_open": 2,
+          "courts_open": 1,
           "courts_total": 2,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/700783"
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/700784"
         },
         {
           "date": "2026-08-25",
@@ -2747,16 +2739,8 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/13",
       "error": null,
-      "open_court_slots": 14,
+      "open_court_slots": 13,
       "slots": [
-        {
-          "date": "2026-08-20",
-          "dow": "thu",
-          "time": "9 AM",
-          "courts_open": 1,
-          "courts_total": 2,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/682476"
-        },
         {
           "date": "2026-08-25",
           "dow": "tue",
@@ -2845,8 +2829,25 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/3",
       "error": null,
-      "open_court_slots": 0,
-      "slots": []
+      "open_court_slots": 4,
+      "slots": [
+        {
+          "date": "2026-08-22",
+          "dow": "sat",
+          "time": "8 AM",
+          "courts_open": 2,
+          "courts_total": 2,
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/697842"
+        },
+        {
+          "date": "2026-08-22",
+          "dow": "sat",
+          "time": "3 PM",
+          "courts_open": 2,
+          "courts_total": 2,
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/697856"
+        }
+      ]
     }
   ]
 }
