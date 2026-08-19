@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-19T00:36:10.668542+00:00",
+  "generated": "2026-08-19T01:23:58.949481+00:00",
   "locations": [
     {
       "location_id": 9,
@@ -7,7 +7,7 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/9",
       "error": null,
-      "open_court_slots": 343,
+      "open_court_slots": 341,
       "slots": [
         {
           "date": "2026-08-19",
@@ -325,7 +325,7 @@
           "date": "2026-08-21",
           "dow": "fri",
           "time": "7 PM",
-          "courts_open": 4,
+          "courts_open": 3,
           "courts_total": 4,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/707299"
         },
@@ -493,9 +493,9 @@
           "date": "2026-08-23",
           "dow": "sun",
           "time": "1 PM",
-          "courts_open": 4,
+          "courts_open": 3,
           "courts_total": 4,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/707411"
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/707412"
         },
         {
           "date": "2026-08-23",
@@ -2149,8 +2149,24 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/12",
       "error": null,
-      "open_court_slots": 101,
+      "open_court_slots": 103,
       "slots": [
+        {
+          "date": "2026-08-19",
+          "dow": "wed",
+          "time": "11 AM",
+          "courts_open": 1,
+          "courts_total": 6,
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/954492"
+        },
+        {
+          "date": "2026-08-20",
+          "dow": "thu",
+          "time": "9 AM",
+          "courts_open": 1,
+          "courts_total": 6,
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/958428"
+        },
         {
           "date": "2026-08-22",
           "dow": "sat",
@@ -2179,7 +2195,7 @@
           "date": "2026-08-26",
           "dow": "wed",
           "time": "11 AM",
-          "courts_open": 3,
+          "courts_open": 2,
           "courts_total": 6,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/957187"
         },
@@ -2211,7 +2227,7 @@
           "date": "2026-08-27",
           "dow": "thu",
           "time": "10 AM",
-          "courts_open": 2,
+          "courts_open": 3,
           "courts_total": 6,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/954579"
         },
@@ -2221,7 +2237,7 @@
           "time": "11 AM",
           "courts_open": 5,
           "courts_total": 6,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/955889"
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/954580"
         },
         {
           "date": "2026-08-27",
@@ -2235,7 +2251,7 @@
           "date": "2026-08-27",
           "dow": "thu",
           "time": "3 PM",
-          "courts_open": 3,
+          "courts_open": 4,
           "courts_total": 6,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/957201"
         },
@@ -2283,17 +2299,9 @@
           "date": "2026-09-01",
           "dow": "tue",
           "time": "9 AM",
-          "courts_open": 1,
+          "courts_open": 2,
           "courts_total": 6,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/961178"
-        },
-        {
-          "date": "2026-09-01",
-          "dow": "tue",
-          "time": "10 AM",
-          "courts_open": 1,
-          "courts_total": 6,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/962719"
         },
         {
           "date": "2026-09-01",
@@ -2315,7 +2323,7 @@
           "date": "2026-09-01",
           "dow": "tue",
           "time": "3 PM",
-          "courts_open": 5,
+          "courts_open": 4,
           "courts_total": 6,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/961568"
         },
@@ -2333,7 +2341,7 @@
           "time": "9 AM",
           "courts_open": 3,
           "courts_total": 6,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/962344"
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/961574"
         },
         {
           "date": "2026-09-02",
@@ -2383,7 +2391,7 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/2",
       "error": null,
-      "open_court_slots": 45,
+      "open_court_slots": 43,
       "slots": [
         {
           "date": "2026-08-19",
@@ -2493,9 +2501,9 @@
           "date": "2026-08-24",
           "dow": "mon",
           "time": "1 PM",
-          "courts_open": 2,
+          "courts_open": 1,
           "courts_total": 2,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/685808"
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/685809"
         },
         {
           "date": "2026-08-24",
@@ -2512,14 +2520,6 @@
           "courts_open": 2,
           "courts_total": 2,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/685812"
-        },
-        {
-          "date": "2026-08-24",
-          "dow": "mon",
-          "time": "4 PM",
-          "courts_open": 1,
-          "courts_total": 2,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/685814"
         },
         {
           "date": "2026-08-25",
