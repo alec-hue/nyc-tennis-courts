@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-30T02:52:49.404451+00:00",
+  "generated": "2026-08-30T03:51:27.156469+00:00",
   "locations": [
     {
       "location_id": 7,
@@ -7,7 +7,7 @@
       "borough": "Queens",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/7",
       "error": null,
-      "open_court_slots": 329,
+      "open_court_slots": 331,
       "slots": [
         {
           "date": "2026-08-30",
@@ -37,9 +37,9 @@
           "date": "2026-08-30",
           "dow": "sun",
           "time": "11 AM",
-          "courts_open": 1,
+          "courts_open": 3,
           "courts_total": 4,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/692371"
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/692373"
         },
         {
           "date": "2026-08-30",
@@ -2029,7 +2029,7 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/12",
       "error": null,
-      "open_court_slots": 69,
+      "open_court_slots": 68,
       "slots": [
         {
           "date": "2026-08-30",
@@ -2203,9 +2203,9 @@
           "date": "2026-09-11",
           "dow": "fri",
           "time": "11 AM",
-          "courts_open": 4,
+          "courts_open": 3,
           "courts_total": 6,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/961675"
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/962060"
         },
         {
           "date": "2026-09-11",
@@ -2656,12 +2656,12 @@
       "open_court_slots": 1,
       "slots": [
         {
-          "date": "2026-09-02",
-          "dow": "wed",
-          "time": "1 PM",
+          "date": "2026-08-30",
+          "dow": "sun",
+          "time": "3 PM",
           "courts_open": 1,
           "courts_total": 2,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/682823"
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/682748"
         }
       ]
     }
