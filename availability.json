@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-02T22:39:03.135023+00:00",
+  "generated": "2026-10-02T23:09:13.677085+00:00",
   "locations": [
     {
       "location_id": 12,
@@ -7,7 +7,7 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/12",
       "error": null,
-      "open_court_slots": 92,
+      "open_court_slots": 94,
       "slots": [
         {
           "date": "2026-10-05",
@@ -24,6 +24,14 @@
           "courts_open": 4,
           "courts_total": 6,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/963790"
+        },
+        {
+          "date": "2026-10-05",
+          "dow": "mon",
+          "time": "4 PM",
+          "courts_open": 1,
+          "courts_total": 6,
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/963791"
         },
         {
           "date": "2026-10-06",
@@ -240,6 +248,14 @@
           "courts_open": 4,
           "courts_total": 6,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/963908"
+        },
+        {
+          "date": "2026-10-16",
+          "dow": "fri",
+          "time": "2 PM",
+          "courts_open": 1,
+          "courts_total": 6,
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/964218"
         }
       ]
     },
@@ -249,7 +265,7 @@
       "borough": "Queens",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/7",
       "error": null,
-      "open_court_slots": 79,
+      "open_court_slots": 82,
       "slots": [
         {
           "date": "2026-10-03",
@@ -278,6 +294,14 @@
         {
           "date": "2026-10-03",
           "dow": "sat",
+          "time": "11 AM",
+          "courts_open": 1,
+          "courts_total": 4,
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/694005"
+        },
+        {
+          "date": "2026-10-03",
+          "dow": "sat",
           "time": "12 PM",
           "courts_open": 3,
           "courts_total": 4,
@@ -287,7 +311,7 @@
           "date": "2026-10-03",
           "dow": "sat",
           "time": "1 PM",
-          "courts_open": 3,
+          "courts_open": 4,
           "courts_total": 4,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/694013"
         },
@@ -351,7 +375,7 @@
           "date": "2026-10-04",
           "dow": "sun",
           "time": "9 AM",
-          "courts_open": 3,
+          "courts_open": 4,
           "courts_total": 4,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/694045"
         },
@@ -443,7 +467,7 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/2",
       "error": null,
-      "open_court_slots": 36,
+      "open_court_slots": 37,
       "slots": [
         {
           "date": "2026-10-05",
@@ -640,6 +664,14 @@
         {
           "date": "2026-10-09",
           "dow": "fri",
+          "time": "12 PM",
+          "courts_open": 1,
+          "courts_total": 2,
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/715704"
+        },
+        {
+          "date": "2026-10-09",
+          "dow": "fri",
           "time": "1 PM",
           "courts_open": 1,
           "courts_total": 2,
@@ -653,7 +685,7 @@
       "borough": "Manhattan",
       "url": "https://www.nycgovparks.org/tennisreservation/availability/3",
       "error": null,
-      "open_court_slots": 21,
+      "open_court_slots": 22,
       "slots": [
         {
           "date": "2026-10-05",
@@ -662,6 +694,14 @@
           "courts_open": 1,
           "courts_total": 2,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/714418"
+        },
+        {
+          "date": "2026-10-05",
+          "dow": "mon",
+          "time": "1 PM",
+          "courts_open": 1,
+          "courts_total": 2,
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reserve/714421"
         },
         {
           "date": "2026-10-05",
