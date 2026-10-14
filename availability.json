@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-14T22:50:26.757398+00:00",
+  "generated": "2026-10-14T23:20:28.694427+00:00",
   "locations": [
     {
       "location_id": 12,
@@ -29,7 +29,7 @@
           "date": "2026-10-19",
           "dow": "mon",
           "time": "2 PM",
-          "courts_open": 4,
+          "courts_open": 3,
           "courts_total": 6,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/963635"
         },
@@ -53,9 +53,9 @@
           "date": "2026-10-20",
           "dow": "tue",
           "time": "2 PM",
-          "courts_open": 5,
+          "courts_open": 4,
           "courts_total": 6,
-          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/963646"
+          "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/963954"
         },
         {
           "date": "2026-10-21",
@@ -133,7 +133,7 @@
           "date": "2026-10-27",
           "dow": "tue",
           "time": "9 AM",
-          "courts_open": 3,
+          "courts_open": 4,
           "courts_total": 6,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/964027"
         },
@@ -149,7 +149,7 @@
           "date": "2026-10-27",
           "dow": "tue",
           "time": "11 AM",
-          "courts_open": 3,
+          "courts_open": 4,
           "courts_total": 6,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/964337"
         },
@@ -181,7 +181,7 @@
           "date": "2026-10-28",
           "dow": "wed",
           "time": "9 AM",
-          "courts_open": 3,
+          "courts_open": 2,
           "courts_total": 6,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/963730"
         },
@@ -245,7 +245,7 @@
           "date": "2026-10-29",
           "dow": "thu",
           "time": "2 PM",
-          "courts_open": 4,
+          "courts_open": 5,
           "courts_total": 6,
           "reserve_url": "https://www.nycgovparks.org/tennisreservation/reservecp/964053"
         },
